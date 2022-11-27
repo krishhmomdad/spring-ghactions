@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot with CI/CD</description>
 	<properties>
 		<java.version>11</java.version>
-		<sonar.projectKey>spring-boot-action-devops-github-actions</sonar.projectKey>
+		<sonar.projectKey>krishhmomdad</sonar.projectKey>
 		<sonar.organization>krishhmomdad</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
 	</properties>
