@@ -33,18 +33,6 @@ jobs:
       - name: Run Tests
         run: mvn -B test
       # Build with Maven
-      - name: Build with Maven
-        run: mvn package --s settings.xml
-        env: 
-          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
-          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
-          ARTIFACTORY_HOST: ${{ secrets.ARTIFACTORY_HOST }}
-      # Upload artifact    
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: spring-app #java-app
-          path: target/data-0.0.1-SNAPSHOT.jar #${{ github.workspace }}/target/*.jar
   #Sonar's Job
   sonar:
     #Depends on test's job
@@ -108,14 +96,19 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       #Build the application using Maven
       - name: Build with Maven
-        run: mvn -B package -DskipTests --file pom.xml
+        #run: mvn -B package -DskipTests --file pom.xml
+        run: mvn package --s settings.xml
+        env: 
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          ARTIFACTORY_HOST: ${{ secrets.ARTIFACTORY_HOST }}
       #Build the application using Maven
       - name: Upload JAR
         #This uploads artifacts from your workflow allowing you to share data between jobs and store data once a workflow is complete.
         uses: actions/upload-artifact@v2
         with:
           #Set artifact name
-          name: artifact
+          name: spring-app #artifact
           #From this path
           path: target/data-0.0.1-SNAPSHOT.jar
   #Deploy's job
