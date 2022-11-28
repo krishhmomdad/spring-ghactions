@@ -43,8 +43,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: spring-app #java-app
+          path: target/data-0.0.1-SNAPSHOT.jar #${{ github.workspace }}/target/*.jar
   #Sonar's Job
   sonar:
     #Depends on test's job
