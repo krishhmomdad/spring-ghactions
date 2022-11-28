@@ -11,6 +11,7 @@
 	<groupId>com.dev.cicd</groupId>
 	<artifactId>data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>Hands-on-ci-cd-for-springboot-apps</name>
 	<description>Demo project for Spring Boot with CI/CD</description>
 	<properties>
@@ -65,5 +66,12 @@
 			</plugin>
 		</plugins>
 	</build>
+	<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>a0p6vz6kofy5t-artifactory-primary-0-releases</name>
+        <url>https://ghub.jfrog.io/artifactory/libs-release</url>
+    </repository>
+</distributionManagement>
 
 </project>
