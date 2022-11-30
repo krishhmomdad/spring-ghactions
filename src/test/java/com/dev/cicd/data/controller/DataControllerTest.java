@@ -19,7 +19,7 @@ class DataControllerTest {
 
     @Test
     void version() {
-        assertEquals( "The actual version is 3.0.0", dataController.version());
+        assertEquals( "The actual version is 4.0.0", dataController.version());
     }
 
     @Test
